@@ -1,0 +1,50 @@
+In Python, you can customize the priority queue by using the heapq module, which provides a built-in implementation of a min-heap. The min-heap is the default behavior of the heapq module, but you can also customize the priority queue by providing a custom priority function. This priority function will determine the order in which elements are dequeued from the priority queue.
+
+Here's how you can customize the priority queue in Python using the heapq module with examples:
+
+Example 1: Basic usage with default min-heap behavior
+
+
+import heapq
+
+priority_queue = [3, 1, 4, 1, 5, 9, 2, 6, 5]
+heapq.heapify(priority_queue)
+
+while priority_queue:
+    print(heapq.heappop(priority_queue))
+
+
+Output:
+1
+1
+2
+3
+4
+5
+5
+6
+9
+
+
+Example 2: Customizing priority using tuples
+
+
+import heapq
+
+def custom_priority(element):
+    return element[0]
+
+priority_queue = [(3, 'apple'), (1, 'orange'), (4, 'banana'), (1, 'grape'), (5, 'cherry')]
+heapq.heapify(priority_queue)
+
+while priority_queue:
+    print(heapq.heappop(priority_queue)[1])  # Print the data (second element of the tuple)
+
+
+Output:
+
+orange
+grape
+apple
+banana
+cherry
